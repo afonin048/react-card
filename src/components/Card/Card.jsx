@@ -1,46 +1,46 @@
 import React from 'react';
 
-const Card = ({cources}) => {
+const Card = ({ cource }) => {
+    const { id, image, level, title, user, rating, students, modules, duration, isMyCource } = cource
 
-    
+    let hours = Math.floor(duration / 3600);
+    let minutes = Math.floor((duration - (hours * 3600)) / 60)
+
     return (
         <div>
-            {
-                cources.map(cource => {
-                    return (
-                        <div className="card" key={cource.id}>
-                            <div className="image__container">
-                                <img
-                                    src={cource.image}
-                                    alt=""
-                                />
-                                <div className="level">{cource.level}</div>
-                            </div>
-                            <h3 className="card__title">{cource.title}</h3>
 
-                            <div className="card__info">
-                                <div className="user">
-                                    <img
-                                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/2048px-User-avatar.svg.png"
-                                        alt="John Doe"
-                                    />
-                                    <p>John Doe</p>
-                                </div>
-                                <div className="rating">
-                                    <p>{cource.rating}</p>
-                                </div>
-                            </div>
-                            {cource.isMyCource &&
-                                <div className="card__info">
-                                    <div>1234 Student</div>
-                                    <div>5 Modules</div>
-                                    <div>1h 30m</div>
-                                </div>}
-                        </div>
-                    )
-                })
+            <div className="card" key={id}>
+                <div className="image__container">
+                    <img
+                        src={image}
+                        alt=""
+                    />
+                    <div className="level">{level}</div>
+                </div>
+                <h3 className="card__title">{title}</h3>
 
-            }
+                <div className="card__info">
+                    <div className="user">
+                        <img
+                            src={user.avatar}
+                            alt={user.name}
+                        />
+                        <p>John Doe</p>
+                    </div>
+                    <div className="rating">
+                        <p>{rating}</p>
+                    </div>
+                </div>
+                {
+                    isMyCource &&
+                    <div className="card__info">
+                        <div>{students} Student</div>
+                        <div>{modules} Modules</div>
+                        <div>{hours}h {minutes}m</div>
+                    </div>
+                }
+            </div>
+
         </div>
     );
 };

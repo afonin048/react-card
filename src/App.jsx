@@ -42,7 +42,8 @@ function App() {
 
   return (
     <div className="App">
-      <Card cources={cources} />
+      {/* <Card cources={cources} /> */}
+      {cources.map(cource => <Card cource={cource} />)}
     </div>
   );
 }

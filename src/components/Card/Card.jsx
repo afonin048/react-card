@@ -25,7 +25,7 @@ const Card = ({ cource }) => {
                             src={user.avatar}
                             alt={user.name}
                         />
-                        <p>John Doe</p>
+                        <p>{user.name}</p>
                     </div>
                     <div className="rating">
                         <p>{rating}</p>
